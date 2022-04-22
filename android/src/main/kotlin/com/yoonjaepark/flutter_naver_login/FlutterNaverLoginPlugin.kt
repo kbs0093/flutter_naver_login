@@ -190,18 +190,7 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         onFailure(errorCode, message)
       }
     }
-    
-    try {
-      OAUTH_CLIENT_ID = bundle?.getString("com.naver.sdk.clientId").toString();
-      OAUTH_CLIENT_SECRET = bundle?.getString("com.naver.sdk.clientSecret").toString();
-      OAUTH_CLIENT_NAME = bundle?.getString("com.naver.sdk.clientName").toString();
-      NaverIdLoginSDK.initialize(mContext!!, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
-      NaverIdLoginSDK.authenticate(this.getActivity()!!, mOAuthLoginHandler);
-    } catch (e: Exception) {
-      println(e)
-      onFailure(777, e)
-    }    
-    
+    NaverIdLoginSDK.authenticate(this.getActivity()!!, mOAuthLoginHandler);
   }
 
   fun logout(result: Result) {
