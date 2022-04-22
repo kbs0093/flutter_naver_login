@@ -255,37 +255,4 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         val allText = br.use(BufferedReader::readText)
         result = allText
         br.close()
-        println(response.toString())
-      } catch (e: Exception) {
-        println(e)
-      }
-
-      //result 값은 JSONObject 형태로 넘어옵니다.
-      return result
-    }
-
-    override fun onPostExecute(s: String) {
-
-    }
-  }
-
-  @Throws(JSONException::class)
-  fun jsonToMap(t: String): HashMap<String, String> {
-    val jObject = JSONObject(t)
-    var map = jsonObjectToMap(jObject)
-    return map
-  }
-
-  @Throws(JSONException::class)
-  fun jsonObjectToMap(jObject: JSONObject): HashMap<String, String> {
-    val map = HashMap<String, String>()
-    val keys = jObject.keys()
-
-    while (keys.hasNext()) {
-      val key = keys.next() as String
-      val value = jObject.getString(key)
-      map[key] = value
-    }
-    return map
-  }
-}
+        println(r
